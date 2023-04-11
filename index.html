@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="./dist/output.css">
 </head>
 <body class="bg-gray-600">
-    <script src="./script/script.js"></script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./three/build/three.module.js",
+                "three/examples/": "./jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="./script/script.js"></script>
 </body>
 </html>
