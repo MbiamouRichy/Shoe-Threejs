@@ -2,7 +2,11 @@
 module.exports = {
   content: ["index.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["'Lexend Deca', sans-serif"]
+      }
+    },
   },
   plugins: [],
 }
