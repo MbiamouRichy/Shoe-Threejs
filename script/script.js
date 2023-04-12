@@ -32,7 +32,7 @@ function init() {
   scene.add(camera);
 
   renderer = new THREE.WebGLRenderer({alpha: true});
-  renderer.setPixelRatio(window.devicePixelRatio * 2);
+  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   container.appendChild(renderer.domElement);
@@ -50,15 +50,15 @@ function onProgress(xhr) {
 
 function onError() {}
 
-const loader = new FBXLoader();
-loader.load('../assets/shoeNike.fbx',function (obj) {
-    object = obj;
-    object.scale.set(2.6, 2.6, 2.6);
-    object.position.set(0,-7,0)
-    object.rotation.y = 1.6;
-    scene.add(object);
+// const loader = new FBXLoader();
+// loader.load('../assets/shoeNike.fbx',function (obj) {
+//     object = obj;
+//     object.scale.set(2.6, 2.6, 2.6);
+//     object.position.set(0,-7,0)
+//     object.rotation.y = 1.6;
+//     scene.add(object);
 
-  },onProgress,onError);
+//   },onProgress,onError);
 
 function onWindowResize() {
   windowHalfX = window.innerWidth / 2;

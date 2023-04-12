@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["'Lexend Deca', sans-serif"]
+      },
+      borderWidth: {
+        width: ["3px"]
       }
     },
   },
