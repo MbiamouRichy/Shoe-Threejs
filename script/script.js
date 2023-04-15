@@ -50,15 +50,15 @@ function onProgress(xhr) {
 
 function onError() {}
 
-// const loader = new FBXLoader();
-// loader.load('../assets/shoeNike.fbx',function (obj) {
-//     object = obj;
-//     object.scale.set(2.6, 2.6, 2.6);
-//     object.position.set(0,-7,0)
-//     object.rotation.y = 1.6;
-//     scene.add(object);
+const loader = new FBXLoader();
+loader.load('../assets/shoeNike.fbx',function (obj) {
+    object = obj;
+    object.scale.set(1.5,1.5,1.6)
+    object.position.set(0,0,0)
+    object.rotation.y = 1.6;
+    scene.add(object);
 
-//   },onProgress,onError);
+  },onProgress,onError);
 
 function onWindowResize() {
   windowHalfX = window.innerWidth / 2;
@@ -67,7 +67,7 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 }
 
 function onDocumentMouseMove(event) {
