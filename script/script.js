@@ -15,14 +15,13 @@ let windowHalfY = window.innerHeight / 2;
 
 let object;
 
-
 /*--- Transformer chaque letre du texte du logo en span -----*/
 text_Logo.forEach((letter) => {
   letter.innerHTML = letter.innerText
     .split("")
     .map(
       (char, idx) =>
-        `<span style="transform:rotate(${idx * 9.5}deg)">${char}</span>`
+        `<span style="transform:rotate(${idx * 11.6}deg)">${char}</span>`
     )
     .join("");
 });
@@ -34,8 +33,13 @@ animate();
 function init() {
   container = document.createElement("div");
   document.body.appendChild(container);
-  camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 2000);
-  camera.position.set(0,0,60)
+  camera = new THREE.PerspectiveCamera(
+    25,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    2000
+  );
+  camera.position.set(0, 0, 60);
 
   // scene
   scene = new THREE.Scene();
@@ -47,7 +51,7 @@ function init() {
   camera.add(pointLight);
   scene.add(camera);
 
-  renderer = new THREE.WebGLRenderer({alpha: true});
+  renderer = new THREE.WebGLRenderer({ alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -69,14 +73,19 @@ function onError() {}
 /*---------- mon objet 3d --------------*/
 
 // const loader = new FBXLoader();
-// loader.load('../assets/shoeNike.fbx',function (obj) {
+// loader.load(
+//   "../assets/shoeNike.fbx",
+//   function (obj) {
 //     object = obj;
-//     object.scale.set(1.5,1.5,1.6)
-//     object.position.set(0,0,0)
+//     object.scale.set(1.5, 1.5, 1.6);
+
+//     object.position.set(0, 0, 0);
 //     object.rotation.y = 1.6;
 //     scene.add(object);
-
-//   },onProgress,onError);
+//   },
+//   onProgress,
+//   onError
+// );
 
 function onWindowResize() {
   windowHalfX = window.innerWidth / 2;
@@ -97,5 +106,8 @@ function animate() {
   render();
 }
 function render() {
+  if (object && document.body.offsetWidth > 1024) {
+    object.scale.set(2.2, 2.2, 2.2);
+  }
   renderer.render(scene, camera);
 }

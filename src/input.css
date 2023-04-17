@@ -10,15 +10,15 @@
     position: absolute;
     left: 50%;
     transform-origin: 0 72px;
-    font-size: 10px;
+    font-size: 16px;
     font-weight: bolder;
-    color: white;
+    color: black;
 }
 main{
-    background: linear-gradient(to bottom,violet, black);
+    background: linear-gradient(to bottom,white, black);
 }
 div canvas{
-    @apply fixed top-0 left-0 w-screen h-screen
+    @apply fixed top-0 left-0 w-screen h-screen;
 }
 .h1{
     font-size: calc(130vw / 4);
@@ -35,4 +35,7 @@ div canvas{
     100%{
         transform: rotate(0deg);
     }
+}
+#btn_shop{
+    background-color: rgb(156, 156, 156);
 }
