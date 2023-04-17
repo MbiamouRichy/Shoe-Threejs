@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { FBXLoader } from "../three/examples/jsm/loaders/FBXLoader.js";
 
+let text_Logo = document.querySelectorAll("#text p");
+
 let container;
 
 let camera, scene, renderer;
@@ -12,6 +14,19 @@ let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
 let object;
+
+
+/*--- Transformer chaque letre du texte du logo en span -----*/
+text_Logo.forEach((letter) => {
+  letter.innerHTML = letter.innerText
+    .split("")
+    .map(
+      (char, idx) =>
+        `<span style="transform:rotate(${idx * 9.5}deg)">${char}</span>`
+    )
+    .join("");
+});
+/*-------------- Genere ma scene threejs --------------------*/
 
 init();
 animate();
@@ -27,6 +42,7 @@ function init() {
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
   scene.add(ambientLight);
 
+  // Point lumineux dans la scene
   const pointLight = new THREE.PointLight(0xcccccc, 0.8);
   camera.add(pointLight);
   scene.add(camera);
@@ -41,6 +57,7 @@ function init() {
   window.addEventListener("resize", onWindowResize);
 }
 
+/*----------- chargement du model (mon onjet 3d) ---------*/
 function onProgress(xhr) {
   if (xhr.lengthComputable) {
     const percentComplete = (xhr.loaded / xhr.total) * 100;
@@ -49,6 +66,7 @@ function onProgress(xhr) {
 }
 
 function onError() {}
+/*---------- mon objet 3d --------------*/
 
 // const loader = new FBXLoader();
 // loader.load('../assets/shoeNike.fbx',function (obj) {

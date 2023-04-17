@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
+#text{
+    animation: rotate 10s linear infinite ;
+}
+#text span{
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 72px;
+    font-size: 10px;
+    font-weight: bolder;
+    color: white;
+}
 main{
     background: linear-gradient(to bottom,violet, black);
 }
@@ -16,4 +27,12 @@ div canvas{
 }
 .shoe-name{
     font-size: calc(100vw / 5);
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
 }
