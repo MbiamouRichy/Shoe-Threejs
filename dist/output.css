@@ -552,8 +552,8 @@ video {
   z-index: -20;
 }
 
-.z-20 {
-  z-index: 20;
+.z-40 {
+  z-index: 40;
 }
 
 .z-50 {
@@ -649,11 +649,6 @@ video {
   text-align: center;
 }
 
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
-}
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -668,10 +663,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.mix-blend-exclusion {
-  mix-blend-mode: exclusion;
-}
-
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -680,10 +671,6 @@ video {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-:root{
-  --color1: rgb(0, 0, 0);
 }
 
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
@@ -702,8 +689,12 @@ div canvas {
 
 .h1{
   font-size: calc(130vw / 4);
-  -webkit-text-stroke: 5px var(--color1);
+  -webkit-text-stroke: 5px black;
   -webkit-text-fill-color: transparent;
+}
+
+.shoe-name{
+  font-size: calc(100vw / 5);
 }
 
 .hover\:scale-110:hover {

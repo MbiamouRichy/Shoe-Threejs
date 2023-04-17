@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-:root{
-    --color1: rgb(0, 0, 0);
-}
-
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
 main{
     background: linear-gradient(to bottom,violet, black);
@@ -16,6 +11,9 @@ div canvas{
 }
 .h1{
     font-size: calc(130vw / 4);
-    -webkit-text-stroke: 5px var(--color1);
+    -webkit-text-stroke: 5px black;
     -webkit-text-fill-color: transparent;
+}
+.shoe-name{
+    font-size: calc(100vw / 5);
 }
