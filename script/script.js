@@ -9,6 +9,7 @@ let camera, scene, renderer;
 
 let mouseX = 0,
   mouseY = 0;
+let time;
 
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
@@ -39,7 +40,7 @@ function init() {
     0.1,
     2000
   );
-  camera.position.set(0, 0, 60);
+  camera.position.set(0, 0, 250);
 
   // scene
   scene = new THREE.Scene();
@@ -72,20 +73,19 @@ function onProgress(xhr) {
 function onError() {}
 /*---------- mon objet 3d --------------*/
 
-// const loader = new FBXLoader();
-// loader.load(
-//   "../assets/shoeNike.fbx",
-//   function (obj) {
-//     object = obj;
-//     object.scale.set(1.5, 1.5, 1.6);
-
-//     object.position.set(0, 0, 0);
-//     object.rotation.y = 1.6;
-//     scene.add(object);
-//   },
-//   onProgress,
-//   onError
-// );
+const loader = new FBXLoader();
+loader.load(
+  "../assets/Shoe.FBX",
+  function (obj) {
+    object = obj;
+    object.scale.set(2.2, 2.2, 2.2)
+    object.position.set(0, -20, 0);
+    object.rotation.y = 135;
+    scene.add(object);
+  },
+  onProgress,
+  onError
+);
 
 function onWindowResize() {
   windowHalfX = window.innerWidth / 2;
@@ -106,8 +106,6 @@ function animate() {
   render();
 }
 function render() {
-  if (object && document.body.offsetWidth > 1024) {
-    object.scale.set(2.2, 2.2, 2.2);
-  }
+
   renderer.render(scene, camera);
 }

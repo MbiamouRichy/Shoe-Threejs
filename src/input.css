@@ -27,6 +27,7 @@ div canvas{
 }
 .shoe-name{
     font-size: calc(100vw / 5);
+    mix-blend-mode: overlay;
 }
 @keyframes rotate {
     0%{
