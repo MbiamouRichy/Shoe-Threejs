@@ -27,7 +27,11 @@ div canvas{
 }
 .shoe-name{
     font-size: calc(100vw / 5);
-    mix-blend-mode: overlay;
+    -webkit-text-stroke: 5px white;
+    -webkit-text-fill-color: transparent;
+}
+.stroke{
+    font-size: calc(100vw / 5);
 }
 @keyframes rotate {
     0%{

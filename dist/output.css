@@ -560,6 +560,10 @@ video {
   top: 1.25rem;
 }
 
+.-z-10 {
+  z-index: -10;
+}
+
 .-z-20 {
   z-index: -20;
 }
@@ -574,6 +578,10 @@ video {
 
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-16 {
@@ -719,8 +727,8 @@ video {
   opacity: 0.6;
 }
 
-.mix-blend-screen {
-  mix-blend-mode: screen;
+.mix-blend-exclusion {
+  mix-blend-mode: exclusion;
 }
 
 .shadow-xl {
@@ -774,7 +782,12 @@ div canvas {
 
 .shoe-name{
   font-size: calc(100vw / 5);
-  mix-blend-mode: overlay;
+  -webkit-text-stroke: 5px white;
+  -webkit-text-fill-color: transparent;
+}
+
+.stroke{
+  font-size: calc(100vw / 5);
 }
 
 @keyframes rotate {

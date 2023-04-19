@@ -78,7 +78,7 @@ loader.load(
   "../assets/Shoe.FBX",
   function (obj) {
     object = obj;
-    object.scale.set(2.2, 2.2, 2.2)
+    object.scale.set(2.2, 2.2, 2.2);
     object.position.set(0, -20, 0);
     object.rotation.y = 135;
     scene.add(object);
@@ -100,12 +100,14 @@ function onWindowResize() {
 function onDocumentMouseMove(event) {
   mouseX = event.clientX - windowHalfX;
   mouseY = event.clientY - windowHalfY;
+  camera.position.x += (mouseX - camera.position.x) * 0.05;
+  camera.position.y += (-mouseY - camera.position.y) * 0.05;
+  camera.lookAt(scene.position);
 }
 function animate() {
   requestAnimationFrame(animate);
   render();
 }
 function render() {
-
   renderer.render(scene, camera);
 }
