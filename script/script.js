@@ -100,14 +100,22 @@ function onWindowResize() {
 function onDocumentMouseMove(event) {
   mouseX = event.clientX - windowHalfX;
   mouseY = event.clientY - windowHalfY;
-  camera.position.x += (mouseX - camera.position.x) * 0.05;
-  camera.position.y += (-mouseY - camera.position.y) * 0.05;
+  camera.position.x += (mouseX - camera.position.x) * 0.03;
+  camera.position.y += (mouseY - camera.position.y) * 0.03;
   camera.lookAt(scene.position);
 }
 function animate() {
   requestAnimationFrame(animate);
   render();
 }
+
 function render() {
+  if(object){
+    if(object.position.y < -18 && object.position.y > -22){
+      object.position.y += 1
+      }else if(object.position.y < -18 && object.position.y <= -22){
+        object.position.y -= 1
+      }
+  }
   renderer.render(scene, camera);
 }

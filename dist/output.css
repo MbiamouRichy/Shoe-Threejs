@@ -44,7 +44,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -560,10 +560,6 @@ video {
   top: 1.25rem;
 }
 
-.-z-10 {
-  z-index: -10;
-}
-
 .-z-20 {
   z-index: -20;
 }
@@ -578,10 +574,6 @@ video {
 
 .flex {
   display: flex;
-}
-
-.hidden {
-  display: none;
 }
 
 .h-16 {
@@ -775,19 +767,20 @@ div canvas {
 }
 
 .h1{
-  font-size: calc(130vw / 4);
-  -webkit-text-stroke: 5px black;
+  font-size: calc(130vw / 5);
+  -webkit-text-stroke: 5px;
   -webkit-text-fill-color: transparent;
 }
 
 .shoe-name{
-  font-size: calc(100vw / 5);
-  -webkit-text-stroke: 5px white;
+  font-size: calc(100vw / 8);
+  -webkit-text-stroke: 5px;
   -webkit-text-fill-color: transparent;
+  outline: none;
 }
 
 .stroke{
-  font-size: calc(100vw / 5);
+  font-size: calc(100vw / 8);
 }
 
 @keyframes rotate {

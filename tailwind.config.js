@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'Lexend Deca', sans-serif"]
+        sans: ["'Space Grotesk', sans-serif"]
       },
       borderWidth: {
         width: ["3px"]
