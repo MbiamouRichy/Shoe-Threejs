@@ -3,13 +3,10 @@ import { FBXLoader } from "../three/examples/jsm/loaders/FBXLoader.js";
 
 let text_Logo = document.querySelectorAll("#text p");
 
-let container;
-
-let camera, scene, renderer;
+let container, camera, scene, renderer, time;
 
 let mouseX = 0,
   mouseY = 0;
-let time;
 
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
@@ -147,22 +144,21 @@ function onWindowResize() {
 function onDocumentMouseMove(event) {
   mouseX = (event.clientX - windowHalfX) / 5;
   mouseY = (event.clientY - windowHalfY) / 5;
-  camera.position.x += (mouseX - camera.position.x) * 0.15;
-  camera.position.y += (mouseY - camera.position.y) * 0.15;
+  camera.position.x += (mouseX - camera.position.x) * 0.2;
+  camera.position.y += (mouseY - camera.position.y) * 0.2;
   camera.lookAt(scene.position);
 }
+time = 0
 function animate() {
   requestAnimationFrame(animate);
+  time -= 0.4
+  if (object) {
+   object.position.y += Math.sin(time) / 8
+  }
   render();
 }
 
 function render() {
-  if (object) {
-    if (object.position.y < -18 && object.position.y > -22) {
-      object.position.y += 1;
-    } else if (object.position.y < -18 && object.position.y <= -22) {
-      object.position.y -= 1;
-    }
-  }
+ 
   renderer.render(scene, camera);
 }
