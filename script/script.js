@@ -73,19 +73,66 @@ function onProgress(xhr) {
 function onError() {}
 /*---------- mon objet 3d --------------*/
 
-const loader = new FBXLoader();
-loader.load(
-  "../assets/Shoe.FBX",
-  function (obj) {
-    object = obj;
-    object.scale.set(2.2, 2.2, 2.2);
-    object.position.set(0, -20, 0);
-    object.rotation.y = 135;
-    scene.add(object);
-  },
-  onProgress,
-  onError
-);
+// const loader = new FBXLoader();
+// loader.load(
+//   "../assets/Model/Shoe.FBX",
+//   function (obj) {
+//     object = obj;
+//     object.scale.set(2.2, 2.2, 2.2);
+//     object.position.set(0, -20, 0);
+//     object.rotation.y = 135;
+
+//     object.traverse(function (child) {
+//       if ( child.isMesh ) {
+//         // Créer une instance de TextureLoader
+//         var textureLoader = new THREE.TextureLoader();
+
+//         // Charger la texture
+//         textureLoader.load(
+//           // URL de la texture
+//           "../assets/Model/Shoe_Color.jpg",
+
+//           // Fonction de rappel appelée lorsque la texture est chargée
+//           function (texture) {
+//             // Appliquer la texture au matériau
+//             child.material.map = texture;
+//             child.material.needsUpdate = true;
+//           }
+//         );
+//       }
+//     });
+
+//     scene.add(object);
+//   },
+//   onProgress,
+//   onError
+// );
+
+function loadModel() {
+
+  object.traverse(function (child) {
+    if (child.isMesh) {
+      child.material.map = texture
+    };
+  });
+
+      object.scale.set(2.2, 2.2, 2.2);
+      object.position.set(0, -20, 0);
+      object.rotation.y = 135;
+
+  scene.add(object);
+
+}
+const manager = new THREE.LoadingManager(loadModel);
+// texture Rock
+const textureLoader = new THREE.TextureLoader(manager);
+const texture = textureLoader.load('../assets/Model/Shoe_Color.jpg');
+// model Rock
+const loader = new FBXLoader(manager);
+loader.load('../assets/Model/Shoe.FBX', function (obj) {
+  object = obj;
+}, onProgress, onError)
+
 
 function onWindowResize() {
   windowHalfX = window.innerWidth / 2;
@@ -110,12 +157,12 @@ function animate() {
 }
 
 function render() {
-  if(object){
-    if(object.position.y < -18 && object.position.y > -22){
-      object.position.y += 1
-      }else if(object.position.y < -18 && object.position.y <= -22){
-        object.position.y -= 1
-      }
+  if (object) {
+    if (object.position.y < -18 && object.position.y > -22) {
+      object.position.y += 1;
+    } else if (object.position.y < -18 && object.position.y <= -22) {
+      object.position.y -= 1;
+    }
   }
   renderer.render(scene, camera);
 }
