@@ -145,10 +145,10 @@ function onWindowResize() {
 }
 
 function onDocumentMouseMove(event) {
-  mouseX = event.clientX - windowHalfX;
-  mouseY = event.clientY - windowHalfY;
-  camera.position.x += (mouseX - camera.position.x) * 0.03;
-  camera.position.y += (mouseY - camera.position.y) * 0.03;
+  mouseX = (event.clientX - windowHalfX) / 5;
+  mouseY = (event.clientY - windowHalfY) / 5;
+  camera.position.x += (mouseX - camera.position.x) * 0.15;
+  camera.position.y += (mouseY - camera.position.y) * 0.15;
   camera.lookAt(scene.position);
 }
 function animate() {
