@@ -2,7 +2,6 @@ import * as THREE from "three";
 import { FBXLoader } from "../three/examples/jsm/loaders/FBXLoader.js";
 
 let text_Logo = document.querySelectorAll("#text p");
-
 let container, camera, scene, renderer, time;
 
 let mouseX = 0,
@@ -69,41 +68,6 @@ function onProgress(xhr) {
 
 function onError() {}
 /*---------- mon objet 3d --------------*/
-
-// const loader = new FBXLoader();
-// loader.load(
-//   "../assets/Model/Shoe.FBX",
-//   function (obj) {
-//     object = obj;
-//     object.scale.set(2.2, 2.2, 2.2);
-//     object.position.set(0, -20, 0);
-//     object.rotation.y = 135;
-
-//     object.traverse(function (child) {
-//       if ( child.isMesh ) {
-//         // Créer une instance de TextureLoader
-//         var textureLoader = new THREE.TextureLoader();
-
-//         // Charger la texture
-//         textureLoader.load(
-//           // URL de la texture
-//           "../assets/Model/Shoe_Color.jpg",
-
-//           // Fonction de rappel appelée lorsque la texture est chargée
-//           function (texture) {
-//             // Appliquer la texture au matériau
-//             child.material.map = texture;
-//             child.material.needsUpdate = true;
-//           }
-//         );
-//       }
-//     });
-
-//     scene.add(object);
-//   },
-//   onProgress,
-//   onError
-// );
 
 function loadModel() {
 

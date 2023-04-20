@@ -651,6 +651,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -659,26 +663,22 @@ video {
   border-radius: 0.75rem;
 }
 
-.border-width {
-  border-width: 3px;
-}
-
 .border {
   border-width: 1px;
 }
 
-.border-b {
-  border-bottom-width: 1px;
-}
-
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+.border-width {
+  border-width: 3px;
 }
 
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .bg-transparent {
@@ -752,6 +752,18 @@ video {
   transition-duration: 150ms;
 }
 
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-150 {
+  transition-delay: 150ms;
+}
+
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
 
 #text{
@@ -788,12 +800,10 @@ div canvas {
 .shoe-name{
   font-size: calc(100vw / 8);
   -webkit-text-stroke: 5px;
-  -webkit-text-fill-color: transparent;
-  outline: none;
 }
 
-.stroke{
-  font-size: calc(100vw / 8);
+.stroke-vide {
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes rotate {
@@ -806,6 +816,25 @@ div canvas {
   }
 }
 
+.shoe-name span:nth-child(1){
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+          clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+.shoe-name span:nth-child(2){
+  -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+  animation: dechirure 0.8s ease-in infinite;
+}
+
+@keyframes dechirure {
+  to{
+    left: 150%;
+  }
+}
+
+/*------------------ Boutton shop -----------------------*/
+
 #btn_shop{
   background-color: rgb(156, 156, 156);
 }
@@ -817,6 +846,10 @@ div canvas {
 }
 
 @media (min-width: 640px) {
+  .sm\:overflow-hidden {
+    overflow: hidden;
+  }
+
   .sm\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;

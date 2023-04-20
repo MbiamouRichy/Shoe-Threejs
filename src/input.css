@@ -28,11 +28,9 @@ div canvas{
 .shoe-name{
     font-size: calc(100vw / 8);
     -webkit-text-stroke: 5px;
-    -webkit-text-fill-color: transparent;
-    outline: none;
 }
-.stroke{
-    font-size: calc(100vw / 8);
+.stroke-vide {
+    -webkit-text-fill-color: transparent;
 }
 @keyframes rotate {
     0%{
@@ -42,6 +40,19 @@ div canvas{
         transform: rotate(0deg);
     }
 }
+.shoe-name span:nth-child(1){
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+.shoe-name span:nth-child(2){
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+    animation: dechirure 0.8s ease-in infinite;
+}
+@keyframes dechirure {
+    to{
+        left: 150%;
+    }
+}
+/*------------------ Boutton shop -----------------------*/
 #btn_shop{
     background-color: rgb(156, 156, 156);
 }
