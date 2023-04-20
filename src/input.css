@@ -42,14 +42,28 @@ div canvas{
 }
 .shoe-name span:nth-child(1){
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    animation: dechirure1 0.5s ease-in-out forwards;
 }
 .shoe-name span:nth-child(2){
-    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
-    animation: dechirure 0.8s ease-in infinite;
+    clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+    animation: dechirure 0.5s ease-in-out forwards;
+}
+@keyframes dechirure1 {
+    0%{
+        left: 60%;
+    }
+    100%{
+        left: 50%;
+        clip-path: none;
+    }
 }
 @keyframes dechirure {
-    to{
-        left: 150%;
+    0%{
+        left: 40%;
+    }
+    100%{
+        left: 50%;
+        clip-path: none;
     }
 }
 /*------------------ Boutton shop -----------------------*/

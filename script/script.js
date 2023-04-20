@@ -69,30 +69,30 @@ function onProgress(xhr) {
 function onError() {}
 /*---------- mon objet 3d --------------*/
 
-function loadModel() {
+// function loadModel() {
 
-  object.traverse(function (child) {
-    if (child.isMesh) {
-      child.material.map = texture
-    };
-  });
+//   object.traverse(function (child) {
+//     if (child.isMesh) {
+//       child.material.map = texture
+//     };
+//   });
 
-      object.scale.set(2.2, 2.2, 2.2);
-      object.position.set(0, -20, 0);
-      object.rotation.y = 135;
+//       object.scale.set(2.2, 2.2, 2.2);
+//       object.position.set(0, -20, 0);
+//       object.rotation.y = 135;
 
-  scene.add(object);
+//   scene.add(object);
 
-}
-const manager = new THREE.LoadingManager(loadModel);
-// texture Rock
-const textureLoader = new THREE.TextureLoader(manager);
-const texture = textureLoader.load('../assets/Model/Shoe_Color.jpg');
-// model Rock
-const loader = new FBXLoader(manager);
-loader.load('../assets/Model/Shoe.FBX', function (obj) {
-  object = obj;
-}, onProgress, onError)
+// }
+// const manager = new THREE.LoadingManager(loadModel);
+// // texture Rock
+// const textureLoader = new THREE.TextureLoader(manager);
+// const texture = textureLoader.load('../assets/Model/Shoe_Color.jpg');
+// // model Rock
+// const loader = new FBXLoader(manager);
+// loader.load('../assets/Model/Shoe.FBX', function (obj) {
+//   object = obj;
+// }, onProgress, onError)
 
 
 function onWindowResize() {

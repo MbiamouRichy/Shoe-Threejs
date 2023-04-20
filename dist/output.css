@@ -651,10 +651,6 @@ video {
   overflow: hidden;
 }
 
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -752,16 +748,8 @@ video {
   transition-duration: 150ms;
 }
 
-.delay-100 {
-  transition-delay: 100ms;
-}
-
 .delay-200 {
   transition-delay: 200ms;
-}
-
-.delay-150 {
-  transition-delay: 150ms;
 }
 
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
@@ -819,17 +807,36 @@ div canvas {
 .shoe-name span:nth-child(1){
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
           clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  animation: dechirure1 0.5s ease-in-out forwards;
 }
 
 .shoe-name span:nth-child(2){
-  -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
-          clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
-  animation: dechirure 0.8s ease-in infinite;
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+  animation: dechirure 0.5s ease-in-out forwards;
+}
+
+@keyframes dechirure1 {
+  0%{
+    left: 60%;
+  }
+
+  100%{
+    left: 50%;
+    -webkit-clip-path: none;
+            clip-path: none;
+  }
 }
 
 @keyframes dechirure {
-  to{
-    left: 150%;
+  0%{
+    left: 40%;
+  }
+
+  100%{
+    left: 50%;
+    -webkit-clip-path: none;
+            clip-path: none;
   }
 }
 
@@ -846,10 +853,6 @@ div canvas {
 }
 
 @media (min-width: 640px) {
-  .sm\:overflow-hidden {
-    overflow: hidden;
-  }
-
   .sm\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
