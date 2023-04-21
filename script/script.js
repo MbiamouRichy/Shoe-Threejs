@@ -1,6 +1,10 @@
 import * as THREE from "three";
 import { FBXLoader } from "../three/examples/jsm/loaders/FBXLoader.js";
 
+let slides = document.querySelectorAll(".slide");
+let btn_left = document.querySelector("#btn_left");
+let btn_right = document.querySelector("#btn_right");
+let activeSlide = 0;
 let text_Logo = document.querySelectorAll("#text p");
 let container, camera, scene, renderer, time;
 
@@ -22,6 +26,29 @@ text_Logo.forEach((letter) => {
     )
     .join("");
 });
+
+/*------------------ Mise en place du slider -----------------*/
+btn_left.addEventListener("click", () => {
+  activeSlide++;
+  if (activeSlide > slides.length - 1) {
+    activeSlide = 0;
+  }
+  changeSlide();
+});
+btn_right.addEventListener("click", () => {
+  activeSlide--;
+  if (activeSlide < 0) {
+    activeSlide = slides.length - 1;
+  }
+  changeSlide();
+});
+
+function changeSlide() {
+  slides.forEach((slide) => slide.classList.remove("active"));
+  slides[activeSlide].className += " active";
+  console.log(activeSlide);
+}
+
 /*-------------- Genere ma scene threejs --------------------*/
 
 init();

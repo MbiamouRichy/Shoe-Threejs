@@ -610,6 +610,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -683,6 +687,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded-full {
@@ -782,6 +790,12 @@ video {
   transition-delay: 200ms;
 }
 
+:root{
+  --color1: #fff;
+  --color2: #000;
+  --color3: rgb(156, 156, 156);
+}
+
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
 
 #text{
@@ -797,9 +811,47 @@ video {
   color: black;
 }
 
-.linear-bg{
-  background: linear-gradient(to bottom,white, black);
+.slide{
+  display: none;
 }
+
+div.active{
+  display: block;
+}
+
+.slide:nth-child(1).active{
+  --color1: #fff;
+  --color2: #000;
+  --color3: rgb(156, 156, 156);
+}
+
+.slide:nth-child(2).active{
+  --color1: #e41111;
+  --color2: #010349;
+  --color3: rgb(140, 200, 255);
+}
+
+/*---- mon background ---*/
+
+.linear-bg{
+  background: linear-gradient(to bottom, var(--color1), var(--color2));
+}
+
+.linear-bg h1{
+  animation: translation 0.3s ease-in-out forwards;
+}
+
+@keyframes translation {
+  from{
+    top: -30%;
+  }
+
+  to{
+    top: 10%;
+  }
+}
+
+/*----- canvas --*/
 
 div canvas {
   position: fixed;
@@ -837,13 +889,13 @@ div canvas {
 .shoe-name span:nth-child(1){
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
           clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
-  animation: dechirure1 0.5s ease-in-out forwards;
+  animation: dechirure1 0.3s ease-in-out forwards;
 }
 
 .shoe-name span:nth-child(2){
   -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
           clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
-  animation: dechirure 0.5s ease-in-out forwards;
+  animation: dechirure 0.3s ease-in-out forwards;
 }
 
 @keyframes dechirure1 {
@@ -873,7 +925,7 @@ div canvas {
 /*------------------ Boutton shop -----------------------*/
 
 #btn_shop{
-  background-color: rgb(156, 156, 156);
+  background: var(--color3);
 }
 
 .hover\:scale-110:hover {
