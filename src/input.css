@@ -14,7 +14,7 @@
     font-weight: bolder;
     color: black;
 }
-main{
+.linear-bg{
     background: linear-gradient(to bottom,white, black);
 }
 div canvas{
@@ -50,7 +50,7 @@ div canvas{
 }
 @keyframes dechirure1 {
     0%{
-        left: 60%;
+        left: 80%;
     }
     100%{
         left: 50%;
@@ -59,7 +59,7 @@ div canvas{
 }
 @keyframes dechirure {
     0%{
-        left: 40%;
+        left: 30%;
     }
     100%{
         left: 50%;
