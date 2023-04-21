@@ -610,10 +610,6 @@ video {
   display: flex;
 }
 
-.hidden {
-  display: none;
-}
-
 .h-16 {
   height: 4rem;
 }
@@ -770,6 +766,10 @@ video {
   opacity: 0.6;
 }
 
+.mix-blend-difference {
+  mix-blend-mode: difference;
+}
+
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -811,8 +811,11 @@ video {
   color: black;
 }
 
+/*-------------- le slider ------------*/
+
 .slide{
   display: none;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 div.active{
@@ -838,15 +841,20 @@ div.active{
 }
 
 .linear-bg h1{
-  animation: translation 0.3s ease-in-out forwards;
+  top: -100%;
+  animation: translation 0.5s ease-in-out 100ms forwards;
 }
 
 @keyframes translation {
-  from{
-    top: -30%;
+  0%{
+    top: -100%;
   }
 
-  to{
+  96%{
+    top: 12%;
+  }
+
+  100%{
     top: 10%;
   }
 }
@@ -895,7 +903,7 @@ div canvas {
 .shoe-name span:nth-child(2){
   -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
           clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
-  animation: dechirure 0.3s ease-in-out forwards;
+  animation: dechirure 0.5s ease-in-out forwards;
 }
 
 @keyframes dechirure1 {

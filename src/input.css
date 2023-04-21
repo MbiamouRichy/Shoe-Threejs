@@ -20,8 +20,11 @@
     font-weight: bolder;
     color: black;
 }
+
+/*-------------- le slider ------------*/
 .slide{
     display: none;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 div.active{
     display: block;
@@ -41,13 +44,17 @@ div.active{
     background: linear-gradient(to bottom, var(--color1), var(--color2));
 }
 .linear-bg h1{
-    animation: translation 0.3s ease-in-out forwards;
+    top: -100%;
+    animation: translation 0.5s ease-in-out 100ms forwards;
 }
 @keyframes translation {
-    from{
-        top: -30%;
+    0%{
+        top: -100%;
     }
-    to{
+    96%{
+        top: 12%;
+    }
+    100%{
         top: 10%;
     }
 }
@@ -81,7 +88,7 @@ div canvas{
 }
 .shoe-name span:nth-child(2){
     clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
-    animation: dechirure 0.3s ease-in-out forwards;
+    animation: dechirure 0.5s ease-in-out forwards;
 }
 @keyframes dechirure1 {
     0%{
