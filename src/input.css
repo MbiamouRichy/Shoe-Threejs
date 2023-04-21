@@ -5,7 +5,7 @@
 :root{
     --color1: #fff;
     --color2: #000;
-    --color3: rgb(156, 156, 156);
+    --color3: #9c9c9c;
 }
 
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
@@ -32,24 +32,30 @@ div.active{
 .slide:nth-child(1).active{
     --color1: #fff;
     --color2: #000;
-    --color3: rgb(156, 156, 156);
+    --color3: #474646;
 }
 .slide:nth-child(2).active{
-    --color1: #e41111;
-    --color2: #010349;
-    --color3: rgb(140, 200, 255);
+    --color1: rgba(255, 6, 6, 0.3);
+    --color2: rgb(82, 3, 3);
+    --color3: rgba(128, 3, 3, 0.8);
+}
+.slide:nth-child(3).active{
+    --color1: rgba(15, 3, 61, 0.3);
+    --color2: rgb(15, 3, 61);
+    --color3: rgb(15, 3, 61, 0.7);
 }
 /*---- mon background ---*/
 .linear-bg{
+    color: var(--color3);
     background: linear-gradient(to bottom, var(--color1), var(--color2));
 }
 .linear-bg h1{
-    top: -100%;
+    top: -50%;
     animation: translation 0.5s ease-in-out 100ms forwards;
 }
 @keyframes translation {
     0%{
-        top: -100%;
+        top: -50%;
     }
     96%{
         top: 12%;
@@ -109,6 +115,6 @@ div canvas{
     }
 }
 /*------------------ Boutton shop -----------------------*/
-#btn_shop{
+.btn_shop{
     background: var(--color3);
 }

@@ -46,7 +46,6 @@ btn_right.addEventListener("click", () => {
 function changeSlide() {
   slides.forEach((slide) => slide.classList.remove("active"));
   slides[activeSlide].className += " active";
-  console.log(activeSlide);
 }
 
 /*-------------- Genere ma scene threejs --------------------*/
@@ -64,6 +63,11 @@ function init() {
     2000
   );
   camera.position.set(0, 0, 250);
+  if(document.body.offsetWidth < 768 && document.body.offsetWidth > 400){
+    camera.position.z = 350
+  }else  if(document.body.offsetWidth < 400){
+    camera.position.z = 500
+  }
 
   // scene
   scene = new THREE.Scene();
@@ -129,7 +133,7 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+  renderer.setSize(window.innerWidth /2, window.innerHeight /2);
 }
 
 function onDocumentMouseMove(event) {
@@ -150,6 +154,6 @@ function animate() {
 }
 
 function render() {
- 
+
   renderer.render(scene, camera);
 }
