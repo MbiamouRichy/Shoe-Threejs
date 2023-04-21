@@ -762,10 +762,6 @@ video {
   opacity: 0.6;
 }
 
-.mix-blend-exclusion {
-  mix-blend-mode: exclusion;
-}
-
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -821,7 +817,7 @@ div canvas {
 
 .shoe-name{
   font-size: calc(100vw / 8);
-  -webkit-text-stroke: 5px;
+  -webkit-text-stroke: 3px;
 }
 
 .stroke-vide {

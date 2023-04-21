@@ -27,7 +27,7 @@ div canvas{
 }
 .shoe-name{
     font-size: calc(100vw / 8);
-    -webkit-text-stroke: 5px;
+    -webkit-text-stroke: 3px;
 }
 .stroke-vide {
     -webkit-text-fill-color: transparent;
