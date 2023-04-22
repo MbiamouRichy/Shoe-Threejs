@@ -14,7 +14,8 @@ let mouseX = 0,
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
-let object, objectTab = [];
+let object,
+  objectTab = [];
 
 /*--- Transformer chaque letre du texte du logo en span -----*/
 text_Logo.forEach((letter) => {
@@ -33,9 +34,28 @@ btn_left.addEventListener("click", () => {
   if (activeSlide > slides.length - 1) {
     activeSlide = 0;
   }
-  for(let i = 0; i < objectTab.length; i++){
-    objectTab[i].position.x += 200
-  }
+  objectTab.forEach((object, idx) => {
+    let count = 1;
+    round();
+    function round() {
+      if (count <= 10) {
+        let set = setInterval(() => {
+            object.position.x += 20;
+            console.log(object.position.x);
+          if (object.position.x > (objectTab.length - 1) * 200) {
+            objectTab.forEach((obj) => {
+              obj.position.x -= objectTab.length * 200;
+              clearInterval(set);
+              console.log(obj.position.x);
+            });
+          }
+          count++;
+          round();
+          clearInterval(set);
+        }, 0.001);
+      }
+    }
+  });
   changeSlide();
 });
 btn_right.addEventListener("click", () => {
@@ -43,9 +63,29 @@ btn_right.addEventListener("click", () => {
   if (activeSlide < 0) {
     activeSlide = slides.length - 1;
   }
-  for(let i = 0; i < objectTab.length; i++){
-    objectTab[i].position.x -= 200
-  }
+  objectTab.forEach(object => {
+    let count = 1;
+    round();
+    function round() {
+      if (count <= 10) {
+        let set = setInterval(() => {
+            object.position.x -= 20;
+            console.log(object.position.x);
+          if (object.position.x < -(objectTab.length - 1) * 200) {
+            objectTab.forEach((obj) => {
+              obj.position.x += objectTab.length * 200;
+              clearInterval(set);
+              console.log(obj.position.x);
+            });
+          }
+          count++;
+          round();
+          clearInterval(set);
+        }, 0.001);
+      }
+    }
+  });
+
   changeSlide();
 });
 
@@ -105,8 +145,8 @@ function onProgress(xhr) {
 
 function onError() {}
 /*---------- mon objet 3d --------------*/
-function loadObject(){
-  for (let i = 0; i < 2; i++) {
+function loadObject() {
+  for (let i = 0; i < 3; i++) {
     function loadModel() {
       objectTab[i].traverse(function (child) {
         if (child.isMesh) {
@@ -118,6 +158,10 @@ function loadObject(){
       objectTab[i].position.y = -20;
       objectTab[i].position.x = i * 200;
       objectTab[i].rotation.y = 135;
+      objectTab[0].rotation.y = 135;
+      objectTab[1].rotation.y = 35;
+      objectTab[2].rotation.y = 55;
+
       scene.add(objectTab[i]);
     }
     var manager = new THREE.LoadingManager(loadModel);
@@ -135,8 +179,8 @@ function loadObject(){
       onError
     );
   }
- }
-loadObject()
+}
+loadObject();
 
 function onWindowResize() {
   windowHalfX = window.innerWidth / 2;
@@ -159,10 +203,10 @@ time = 0;
 function animate() {
   requestAnimationFrame(animate);
   time -= 0.3;
-  for(let i = 0; i < objectTab.length; i++){
-      objectTab[i].position.y += Math.sin(time) / 5;
+  for (let i = 0; i < objectTab.length; i++) {
+    objectTab[i].position.y += Math.sin(time) / 5;
   }
-  
+
   render();
 }
 
