@@ -14,7 +14,7 @@ let mouseX = 0,
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
-let object;
+let object, objectTab = [];
 
 /*--- Transformer chaque letre du texte du logo en span -----*/
 text_Logo.forEach((letter) => {
@@ -33,12 +33,18 @@ btn_left.addEventListener("click", () => {
   if (activeSlide > slides.length - 1) {
     activeSlide = 0;
   }
+  for(let i = 0; i < objectTab.length; i++){
+    objectTab[i].position.x += 200
+  }
   changeSlide();
 });
 btn_right.addEventListener("click", () => {
   activeSlide--;
   if (activeSlide < 0) {
     activeSlide = slides.length - 1;
+  }
+  for(let i = 0; i < objectTab.length; i++){
+    objectTab[i].position.x -= 200
   }
   changeSlide();
 });
@@ -63,10 +69,10 @@ function init() {
     2000
   );
   camera.position.set(0, 0, 250);
-  if(document.body.offsetWidth < 768 && document.body.offsetWidth > 400){
-    camera.position.z = 350
-  }else  if(document.body.offsetWidth < 400){
-    camera.position.z = 500
+  if (document.body.offsetWidth < 768 && document.body.offsetWidth > 400) {
+    camera.position.z = 350;
+  } else if (document.body.offsetWidth < 400) {
+    camera.position.z = 500;
   }
 
   // scene
@@ -99,32 +105,38 @@ function onProgress(xhr) {
 
 function onError() {}
 /*---------- mon objet 3d --------------*/
+function loadObject(){
+  for (let i = 0; i < 2; i++) {
+    function loadModel() {
+      objectTab[i].traverse(function (child) {
+        if (child.isMesh) {
+          child.material.map = texture;
+        }
+      });
 
-function loadModel() {
-
-  object.traverse(function (child) {
-    if (child.isMesh) {
-      child.material.map = texture
-    };
-  });
-
-      object.scale.set(2.2, 2.2, 2.2);
-      object.position.set(0, -20, 0);
-      object.rotation.y = 135;
-
-  scene.add(object);
-
-}
-const manager = new THREE.LoadingManager(loadModel);
-// texture Rock
-const textureLoader = new THREE.TextureLoader(manager);
-const texture = textureLoader.load('../assets/Model/Shoe_Color.jpg');
-// model Rock
-const loader = new FBXLoader(manager);
-loader.load('../assets/Model/Shoe.FBX', function (obj) {
-  object = obj;
-}, onProgress, onError)
-
+      objectTab[i].scale.set(2.2, 2.2, 2.2);
+      objectTab[i].position.y = -20;
+      objectTab[i].position.x = i * 200;
+      objectTab[i].rotation.y = 135;
+      scene.add(objectTab[i]);
+    }
+    var manager = new THREE.LoadingManager(loadModel);
+    // texture Rock
+    var textureLoader = new THREE.TextureLoader(manager);
+    var texture = textureLoader.load("../assets/Model/Shoe_Color.jpg");
+    // model Rock
+    var loader = new FBXLoader(manager);
+    loader.load(
+      "../assets/Model/Shoe.FBX",
+      function (obj) {
+        objectTab[i] = obj;
+      },
+      onProgress,
+      onError
+    );
+  }
+ }
+loadObject()
 
 function onWindowResize() {
   windowHalfX = window.innerWidth / 2;
@@ -133,7 +145,7 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth /2, window.innerHeight /2);
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 }
 
 function onDocumentMouseMove(event) {
@@ -143,17 +155,17 @@ function onDocumentMouseMove(event) {
   camera.position.y += (mouseY - camera.position.y) * 0.2;
   camera.lookAt(scene.position);
 }
-time = 0
+time = 0;
 function animate() {
   requestAnimationFrame(animate);
-  time -= 0.3
-  if (object) {
-   object.position.y += Math.sin(time) / 5
+  time -= 0.3;
+  for(let i = 0; i < objectTab.length; i++){
+      objectTab[i].position.y += Math.sin(time) / 5;
   }
+  
   render();
 }
 
 function render() {
-
   renderer.render(scene, camera);
 }
