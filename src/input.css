@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root{
-    --color1: #fff;
+    --color1: #9c9c9c;
     --color2: #000;
-    --color3: #9c9c9c;
+    --color3: #0c0c0c;
 }
 
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
@@ -30,24 +30,24 @@ div.active{
     display: block;
 }
 .slide:nth-child(1).active{
-    --color1: #fff;
+    --color3: #9c9c9c;
     --color2: #000;
-    --color3: #474646;
+    --color1: #0c0c0c;
 }
 .slide:nth-child(2).active{
-    --color1: rgb(179, 7, 7);
-    --color2: #000000;
-    --color3: rgb(255, 11, 11);
+    --color1: #833ab4;
+    --color2: #fd1d1d;
+    --color3: #ffaf3f;
 }
 .slide:nth-child(3).active{
-    --color1: rgba(15, 3, 61, 0.1);
-    --color2: rgb(11, 1, 49);
-    --color3: rgb(15, 3, 61, 0.7);
+    --color1: rgba(2,0,36,1);
+    --color2: rgba(9,9,121,1) ;
+    --color3: rgba(0,212,255,1);
 }
 /*---- mon background ---*/
 .linear-bg{
     color: var(--color3);
-    background: linear-gradient(to bottom, var(--color1), var(--color2));
+    background: linear-gradient(0deg, var(--color1) 0%, var(--color2) 35%, var(--color3) 100%);
 }
 .linear-bg h1{
     top: -50%;

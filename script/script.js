@@ -38,9 +38,9 @@ btn_left.addEventListener("click", () => {
     let count = 1;
     round();
     function round() {
-      if (count <= 10) {
+      if (count <= 5) {
         let set = setInterval(() => {
-            object.position.x += 20;
+            object.position.x += 40;
             console.log(object.position.x);
           if (object.position.x > (objectTab.length - 1) * 200) {
             objectTab.forEach((obj) => {
@@ -67,9 +67,9 @@ btn_right.addEventListener("click", () => {
     let count = 1;
     round();
     function round() {
-      if (count <= 10) {
+      if (count <= 5) {
         let set = setInterval(() => {
-            object.position.x -= 20;
+            object.position.x -= 40;
             console.log(object.position.x);
           if (object.position.x < -(objectTab.length - 1) * 200) {
             objectTab.forEach((obj) => {
