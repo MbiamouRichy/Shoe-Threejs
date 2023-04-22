@@ -146,9 +146,9 @@ function onDocumentMouseMove(event) {
 time = 0
 function animate() {
   requestAnimationFrame(animate);
-  time -= 0.4
+  time -= 0.3
   if (object) {
-   object.position.y += Math.sin(time) / 8
+   object.position.y += Math.sin(time) / 5
   }
   render();
 }

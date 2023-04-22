@@ -829,14 +829,14 @@ div.active{
 }
 
 .slide:nth-child(2).active{
-  --color1: rgba(255, 6, 6, 0.3);
-  --color2: rgb(82, 3, 3);
-  --color3: rgba(128, 3, 3, 0.8);
+  --color1: rgb(179, 7, 7);
+  --color2: #000000;
+  --color3: rgb(255, 11, 11);
 }
 
 .slide:nth-child(3).active{
-  --color1: rgba(15, 3, 61, 0.3);
-  --color2: rgb(15, 3, 61);
+  --color1: rgba(15, 3, 61, 0.1);
+  --color2: rgb(11, 1, 49);
   --color3: rgb(15, 3, 61, 0.7);
 }
 
