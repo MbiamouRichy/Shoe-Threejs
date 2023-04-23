@@ -16,7 +16,7 @@ let mouseX = 0,
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
-let object,
+let textures = [],
   objectTab = [];
 
 /*--- Transformer chaque letre du texte du logo en span -----*/
@@ -158,7 +158,7 @@ function loadObject() {
     function loadModel() {
       objectTab[i].traverse(function (child) {
         if (child.isMesh) {
-          child.material.map = texture;
+          child.material.map = textures[i];
         }
       });
 
@@ -177,7 +177,8 @@ function loadObject() {
     var manager = new THREE.LoadingManager(loadModel);
     // texture Rock
     var textureLoader = new THREE.TextureLoader(manager);
-    var texture = textureLoader.load(imageList[i]);
+    var textureObject = textureLoader.load(imageList[i]);
+    textures.push(textureObject)
     // model Rock
     var loader = new FBXLoader(manager);
     loader.load(
