@@ -148,8 +148,8 @@ function onProgress(xhr) {
 function onError() {}
 /*---------- mon objet 3d --------------*/
 let imageList = [
-  "../assets/shoe-2/textures/Sepatu_01_MAT_normal.png",
   "../assets/shoe-2/textures/Sepatu_01_MAT_baseColor.jpg",
+  "../assets/shoe-2/textures/Sepatu_01_MAT_normal.png",
   "../assets/shoe-2/textures/Sepatu_01_MAT_metallic.jpg",
   "../assets/shoe-2/textures/Sepatu_01_MAT_roughness.jpg",
 ]
@@ -163,15 +163,11 @@ function loadObject() {
       });
 
     objectTab[i].scale.set(0.15, 0.15, 0.15);
-      objectTab[i].position.y = -35;
-      objectTab[i].position.x = -10 + (i * 200);
-      objectTab[i].rotation.x = 1.3;
+       objectTab[i].position.y = -35;
+       objectTab[i].position.x = -10 + (i * 200);
+       objectTab[i].rotation.x = 1.3;
        objectTab[i].rotation.y = 45;
        objectTab[i].rotation.z = -1;
-
-      // objectTab[1].rotation.y = 35;
-      // objectTab[2].rotation.y = 55;
-
       scene.add(objectTab[i]);
     }
     var manager = new THREE.LoadingManager(loadModel);

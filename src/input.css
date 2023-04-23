@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root{
-    --color1: #9c9c9c;
-    --color2: #000;
-    --color3: #0c0c0c;
+    --color1: #000;
+    --color2: #3e5306;
+    --color3: #636363;
 }
 
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
@@ -30,24 +30,29 @@ div.active{
     display: block;
 }
 .slide:nth-child(1).active{
-    --color3: #9c9c9c;
-    --color2: #000;
-    --color1: #0c0c0c;
+    --color1: #000;
+    --color2: #3e5306;
+    --color3: #636363;
 }
 .slide:nth-child(2).active{
-    --color1: #833ab4;
-    --color2: #fd1d1d;
-    --color3: #ffaf3f;
+    --color1: #000;
+    --color2: #8d8c8c;
+    --color3: #c7c6c6;
 }
 .slide:nth-child(3).active{
-    --color1: rgba(2,0,36,1);
-    --color2: rgba(9,9,121,1) ;
-    --color3: rgba(0,212,255,1);
+    --color1: #000;
+    --color2: #414141;
+    --color3: #bbb9b9;
+}
+.slide:nth-child(4).active{
+    --color1: #011085;
+    --color2: #3e5306;
+    --color3: #585758;
 }
 /*---- mon background ---*/
 .linear-bg{
     color: var(--color3);
-    background: linear-gradient(0deg, var(--color1) 0%, var(--color2) 35%, var(--color3) 100%);
+    background: linear-gradient(to bottom, var(--color1), var(--color2));
 }
 .linear-bg h1{
     top: -50%;
