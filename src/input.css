@@ -119,3 +119,18 @@ div canvas{
         clip-path: none;
     }
 }
+
+/*------------------- animation avec le prix des chaussures ------------------------------*/
+
+.prix{
+    left: 150%;
+    animation: slide 0.5s ease-in-out 0.3s forwards;
+}
+@keyframes slide {
+    from{
+        left: 150%;
+    }
+    to{
+        left: 50%;
+    }
+}

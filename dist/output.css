@@ -594,10 +594,6 @@ video {
   top: 1.25rem;
 }
 
-.bottom-5 {
-  bottom: 1.25rem;
-}
-
 .-z-20 {
   z-index: -20;
 }
@@ -687,10 +683,6 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden;
 }
 
 .whitespace-nowrap {
@@ -955,6 +947,23 @@ div canvas {
   }
 }
 
+/*------------------- animation avec le prix des chaussures ------------------------------*/
+
+.prix{
+  left: 150%;
+  animation: slide 0.5s ease-in-out 0.3s forwards;
+}
+
+@keyframes slide {
+  from{
+    left: 150%;
+  }
+
+  to{
+    left: 50%;
+  }
+}
+
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -962,10 +971,6 @@ div canvas {
 }
 
 @media (min-width: 640px) {
-  .sm\:bottom-5 {
-    bottom: 1.25rem;
-  }
-
   .sm\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -989,10 +994,6 @@ div canvas {
 }
 
 @media (min-width: 1024px) {
-  .lg\:bottom-10 {
-    bottom: 2.5rem;
-  }
-
   .lg\:gap-14 {
     gap: 3.5rem;
   }
