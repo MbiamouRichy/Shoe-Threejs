@@ -51,7 +51,7 @@ btn_left.addEventListener("click", () => {
           count++;
           round();
           clearInterval(set);
-        }, 0.01);
+        }, 100);
       }
     }
   });
@@ -78,7 +78,7 @@ btn_right.addEventListener("click", () => {
           count++;
           round();
           clearInterval(set);
-        }, 0.01);
+        }, 100);
       }
     }
   });
