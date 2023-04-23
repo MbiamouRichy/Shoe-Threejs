@@ -42,18 +42,16 @@ btn_left.addEventListener("click", () => {
       if (count <= 5) {
         let set = setInterval(() => {
             object.position.x += 40;
-            console.log(object.position.x);
           if (object.position.x > (objectTab.length - 1) * 200 - 10) {
             objectTab.forEach((obj) => {
               obj.position.x -= objectTab.length * 200;
               clearInterval(set);
-              console.log(obj.position.x);
             });
           }
           count++;
           round();
           clearInterval(set);
-        }, 0.001);
+        }, 0.01);
       }
     }
   });
@@ -71,18 +69,16 @@ btn_right.addEventListener("click", () => {
       if (count <= 5) {
         let set = setInterval(() => {
             object.position.x -= 40;
-            console.log(object.position.y);
           if (object.position.x < -(objectTab.length - 1) * 200 - 10) {
             objectTab.forEach((obj) => {
               obj.position.x += objectTab.length * 200;
               clearInterval(set);
-              console.log(obj.position.y);
             });
           }
           count++;
           round();
           clearInterval(set);
-        }, 0.001);
+        }, 0.01);
       }
     }
   });
@@ -161,7 +157,7 @@ function loadObject() {
         }
       });
 
-    objectTab[i].scale.set(0.15, 0.15, 0.15);
+       objectTab[i].scale.set(0.15, 0.15, 0.15);
        objectTab[i].position.y = -35;
        objectTab[i].position.x = -10 + (i * 200);
        objectTab[i].rotation.x = 1.3;
