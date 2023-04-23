@@ -51,7 +51,7 @@ btn_left.addEventListener("click", () => {
           count++;
           round();
           clearInterval(set);
-        }, 100);
+        }, 20);
       }
     }
   });
@@ -78,7 +78,7 @@ btn_right.addEventListener("click", () => {
           count++;
           round();
           clearInterval(set);
-        }, 100);
+        }, 20);
       }
     }
   });
@@ -137,6 +137,8 @@ function onProgress(xhr) {
   if (xhr.lengthComputable) {
     const percentComplete = (xhr.loaded / xhr.total) * 100;
     console.log("model " + Math.round(percentComplete, 2) + "% downloaded");
+    document.body.style.opacity = percentComplete;
+
   }
 }
 
@@ -206,7 +208,7 @@ function animate() {
   requestAnimationFrame(animate);
   time -= 0.3;
   for (let i = 0; i < objectTab.length; i++) {
-    objectTab[i].position.y += Math.sin(time) / 5;
+    objectTab[i].position.y += Math.sin(time) / 10;
   }
 
   render();
