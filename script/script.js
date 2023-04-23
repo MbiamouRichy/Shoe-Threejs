@@ -119,7 +119,7 @@ function init() {
 
   // scene
   scene = new THREE.Scene();
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
   scene.add(ambientLight);
 
   // Point lumineux dans la scene
@@ -148,10 +148,10 @@ function onProgress(xhr) {
 function onError() {}
 /*---------- mon objet 3d --------------*/
 let imageList = [
-  "../assets/shoe-2/textures/Sepatu_01_MAT_baseColor.jpg",
-  "../assets/shoe-2/textures/Sepatu_01_MAT_normal.png",
-  "../assets/shoe-2/textures/Sepatu_01_MAT_metallic.jpg",
-  "../assets/shoe-2/textures/Sepatu_01_MAT_roughness.jpg",
+  "../assets/shoe-2/source/Sepatu_01_MAT_baseColor.jpg",
+  "../assets/shoe-2/source/Sepatu_01_MAT_normal.png",
+  "../assets/shoe-2/source/Sepatu_01_MAT_metallic.jpg",
+  "../assets/shoe-2/source/Sepatu_01_MAT_roughness.jpg",
 ]
 function loadObject() {
   for (let i = 0; i < imageList.length; i++) {
