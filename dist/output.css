@@ -835,7 +835,7 @@ div.active{
 }
 
 .slide:nth-child(3).active{
-  --color1: #000;
+  --color1: #292929;
   --color2: #414141;
   --color3: #bbb9b9;
 }
