@@ -562,8 +562,8 @@ video {
   position: relative;
 }
 
-.bottom-10 {
-  bottom: 2.5rem;
+.bottom-2 {
+  bottom: 0.5rem;
 }
 
 .left-0 {
@@ -592,6 +592,10 @@ video {
 
 .top-5 {
   top: 1.25rem;
+}
+
+.bottom-5 {
+  bottom: 1.25rem;
 }
 
 .-z-20 {
@@ -685,6 +689,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -760,6 +768,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 .opacity-60 {
@@ -868,7 +880,7 @@ div.active{
   }
 
   100%{
-    top: 10%;
+    top: 20%;
   }
 }
 
@@ -950,6 +962,10 @@ div canvas {
 }
 
 @media (min-width: 640px) {
+  .sm\:bottom-5 {
+    bottom: 1.25rem;
+  }
+
   .sm\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -962,6 +978,10 @@ div canvas {
 }
 
 @media (min-width: 768px) {
+  .md\:bottom-10 {
+    bottom: 2.5rem;
+  }
+
   .md\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -969,6 +989,10 @@ div canvas {
 }
 
 @media (min-width: 1024px) {
+  .lg\:bottom-10 {
+    bottom: 2.5rem;
+  }
+
   .lg\:gap-14 {
     gap: 3.5rem;
   }
