@@ -114,7 +114,3 @@ div canvas{
         clip-path: none;
     }
 }
-/*------------------ Boutton shop -----------------------*/
-.btn_shop{
-    background: var(--color3);
-}

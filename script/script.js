@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import { FBXLoader } from "../three/examples/jsm/loaders/FBXLoader.js";
+import { GLTFLoader } from "../three/examples/jsm/loaders/GLTFLoader.js";
+
 
 let slides = document.querySelectorAll(".slide");
 let btn_left = document.querySelector("#btn_left");
@@ -42,7 +44,7 @@ btn_left.addEventListener("click", () => {
         let set = setInterval(() => {
             object.position.x += 40;
             console.log(object.position.x);
-          if (object.position.x > (objectTab.length - 1) * 200) {
+          if (object.position.x > (objectTab.length - 1) * 200 - 10) {
             objectTab.forEach((obj) => {
               obj.position.x -= objectTab.length * 200;
               clearInterval(set);
@@ -70,12 +72,12 @@ btn_right.addEventListener("click", () => {
       if (count <= 5) {
         let set = setInterval(() => {
             object.position.x -= 40;
-            console.log(object.position.x);
-          if (object.position.x < -(objectTab.length - 1) * 200) {
+            console.log(object.position.y);
+          if (object.position.x < -(objectTab.length - 1) * 200 - 10) {
             objectTab.forEach((obj) => {
               obj.position.x += objectTab.length * 200;
               clearInterval(set);
-              console.log(obj.position.x);
+              console.log(obj.position.y);
             });
           }
           count++;
@@ -145,8 +147,14 @@ function onProgress(xhr) {
 
 function onError() {}
 /*---------- mon objet 3d --------------*/
+let imageList = [
+  "../assets/shoe-2/textures/Sepatu_01_MAT_normal.png",
+  "../assets/shoe-2/textures/Sepatu_01_MAT_baseColor.jpg",
+  "../assets/shoe-2/textures/Sepatu_01_MAT_metallic.jpg",
+  "../assets/shoe-2/textures/Sepatu_01_MAT_roughness.jpg",
+]
 function loadObject() {
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < imageList.length; i++) {
     function loadModel() {
       objectTab[i].traverse(function (child) {
         if (child.isMesh) {
@@ -154,24 +162,26 @@ function loadObject() {
         }
       });
 
-      objectTab[i].scale.set(2.2, 2.2, 2.2);
-      objectTab[i].position.y = -20;
-      objectTab[i].position.x = i * 200;
-      objectTab[i].rotation.y = 135;
-      objectTab[0].rotation.y = 135;
-      objectTab[1].rotation.y = 35;
-      objectTab[2].rotation.y = 55;
+    objectTab[i].scale.set(0.15, 0.15, 0.15);
+      objectTab[i].position.y = -35;
+      objectTab[i].position.x = -10 + (i * 200);
+      objectTab[i].rotation.x = 1.3;
+       objectTab[i].rotation.y = 45;
+       objectTab[i].rotation.z = -1;
+
+      // objectTab[1].rotation.y = 35;
+      // objectTab[2].rotation.y = 55;
 
       scene.add(objectTab[i]);
     }
     var manager = new THREE.LoadingManager(loadModel);
     // texture Rock
     var textureLoader = new THREE.TextureLoader(manager);
-    var texture = textureLoader.load("../assets/Model/Shoe_Color.jpg");
+    var texture = textureLoader.load(imageList[i]);
     // model Rock
     var loader = new FBXLoader(manager);
     loader.load(
-      "../assets/Model/Shoe.FBX",
+      "../assets/shoe-2/source/Sepatu_01.fbx",
       function (obj) {
         objectTab[i] = obj;
       },
