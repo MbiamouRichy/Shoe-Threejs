@@ -49,8 +49,8 @@ btn_left.addEventListener("click", () => {
             });
           }
           count++;
-          round();
           clearInterval(set);
+          round();
         }, 20);
       }
     }
@@ -76,8 +76,8 @@ btn_right.addEventListener("click", () => {
             });
           }
           count++;
-          round();
           clearInterval(set);
+          round();
         }, 20);
       }
     }
@@ -106,11 +106,6 @@ function init() {
     2000
   );
   camera.position.set(0, 0, 250);
-  if (document.body.offsetWidth < 768 && document.body.offsetWidth > 400) {
-    camera.position.z = 350;
-  } else if (document.body.offsetWidth < 400) {
-    camera.position.z = 500;
-  }
 
   // scene
   scene = new THREE.Scene();
@@ -187,13 +182,13 @@ function loadObject() {
 loadObject();
 
 function onWindowResize() {
-  windowHalfX = window.innerWidth / 2;
-  windowHalfY = window.innerHeight / 2;
+  windowHalfX = window.innerWidth;
+  windowHalfY = window.innerHeight;
 
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+  renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
 function onDocumentMouseMove(event) {
@@ -210,7 +205,14 @@ function animate() {
   for (let i = 0; i < objectTab.length; i++) {
     objectTab[i].position.y += Math.sin(time) / 10;
   }
-
+  if(camera){
+    if (document.body.offsetWidth < 768 && document.body.offsetWidth > 400) {
+      camera.position.z = 350;
+    } else if (document.body.offsetWidth < 400) {
+      camera.position.z = 500;
+    }
+  
+  }
   render();
 }
 
