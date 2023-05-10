@@ -9,6 +9,18 @@
 }
 
 /*-------------------------- STYLE SPECIALE -----------------------------------------*/
+/* loader */
+/* Loader */
+.load_opacity {
+    z-index: 100;
+    color: #fff;
+}
+.load_opacity svg path{
+    fill: #fff;
+}
+
+/*-------------- le slider ------------*/
+
 #text{
     animation: rotate 10s linear infinite ;
 }
@@ -21,7 +33,6 @@
     color: black;
 }
 
-/*-------------- le slider ------------*/
 .slide{
     display: none;
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1);

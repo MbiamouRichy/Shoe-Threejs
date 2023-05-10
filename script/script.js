@@ -7,6 +7,11 @@ let btn_left = document.querySelector("#btn_left");
 let btn_right = document.querySelector("#btn_right");
 let activeSlide = 0;
 let text_Logo = document.querySelectorAll("#text p");
+let load = document.querySelector(".load")
+let load_div = document.querySelector(".load_div")
+let count = 0
+let load_opacity = document.querySelector(".load_opacity")
+let load_svg = document.querySelector(".load_opacity svg")
 let container, camera, scene, renderer, time;
 
 let mouseX = 0,
@@ -132,8 +137,6 @@ function onProgress(xhr) {
   if (xhr.lengthComputable) {
     const percentComplete = (xhr.loaded / xhr.total) * 100;
     console.log("model " + Math.round(percentComplete, 2) + "% downloaded");
-    document.body.style.opacity = percentComplete;
-
   }
 }
 
@@ -218,4 +221,19 @@ function animate() {
 
 function render() {
   renderer.render(scene, camera);
+}
+
+let set = setInterval(() =>{
+  count++
+  load.innerText = `${count.toString().padStart(3, '0')}`
+  load_div.style.opacity = scale(count, 0, 100, 1, 0)
+  load_svg.style.opacity = scale(count, 0, 100, 0, 1)
+  if(count > 99){
+  clearInterval(set)
+  load_opacity.style.display = "none"
+  }
+}, 1)
+
+const scale = (num, in_min, in_max, out_min, out_max) =>{
+  return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 }
